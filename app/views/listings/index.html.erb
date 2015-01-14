@@ -5,11 +5,11 @@
 
 <div class="col-md-6">
 
-<div class="thumbnail">
+
 <div style='width: 800px;'>
-  <div id="map" style='width: 785px; height: 500px;'></div>
+  <div id="map" style='width: 650px; height: 500px;'></div>
 </div>
-  </div>
+  
 <script type="text/javascript">
   handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
@@ -27,14 +27,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   <%= file_field_tag :file %>
   <%= submit_tag "Import CSV" %>   
   <% end %> 
-<script type="text/javascript">
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers(<%=raw @hash.to_json %>);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-});
-</script>
+
   </div>
 
 <center><h1>Rent Near Howard</h1></center>
@@ -47,7 +40,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
      <!--   <td><%= listing.latitude %></td>
         <td><%= listing.longitude %></td> -->
        <td><h3><%= link_to listing.address, "http://realtor.com#{listing.url}" %></h3></td> 
-       <h3><td><%= listing.price %></td></h3>
+       <td><h3><%= listing.price %></h3></td>
        <td><%= listing.url %></td>
         <td><%= listing.description %></td>
         <td><%= link_to 'Show', listing %></td>
@@ -60,6 +53,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     <% end %>
   
   </div>
+  <center>
    <nav>
   <ul class="pagination">
     <li>
@@ -79,4 +73,5 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     </li>
   </ul>
 </nav>
+  </center>
 </div>
