@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     @listings = Listing.all
-    @hash = Gmaps4rails.build_markers(@listings) do |listing, marker|
+     @hash = Gmaps4rails.build_markers(@listings) do |listing, marker|
       marker.lat listing.latitude
       marker.lng listing.longitude
       marker.infowindow listing.description
@@ -65,16 +65,12 @@ class ListingsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
    def import
   Listing.import(params[:file])
   redirect_to listings_path, notice: "All good"
   end
-  
-  def redirect_to_url
-  redirect_to "http://zillow.com/url"
-end
-  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
@@ -83,6 +79,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:latitude, :longitude, :address, :url, :description)
+      params.require(:listing).permit(:latitude, :longitude, :address, :price, :url, :description)
     end
 end

@@ -18,7 +18,7 @@ class ListingsControllerTest < ActionController::TestCase
 
   test "should create listing" do
     assert_difference('Listing.count') do
-      post :create, listing: { address: @listing.address, description: @listing.description, latitude: @listing.latitude, longitude: @listing.longitude, url: @listing.url }
+      post :create, listing: { address: @listing.address, description: @listing.description, latitude: @listing.latitude, longitude: @listing.longitude, price: @listing.price, url: @listing.url }
     end
 
     assert_redirected_to listing_path(assigns(:listing))
@@ -35,7 +35,7 @@ class ListingsControllerTest < ActionController::TestCase
   end
 
   test "should update listing" do
-    patch :update, id: @listing, listing: { address: @listing.address, description: @listing.description, latitude: @listing.latitude, longitude: @listing.longitude, url: @listing.url }
+    patch :update, id: @listing, listing: { address: @listing.address, description: @listing.description, latitude: @listing.latitude, longitude: @listing.longitude, price: @listing.price, url: @listing.url }
     assert_redirected_to listing_path(assigns(:listing))
   end
 

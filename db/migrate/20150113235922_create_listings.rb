@@ -4,6 +4,7 @@ class CreateListings < ActiveRecord::Migration
       t.float :latitude
       t.float :longitude
       t.string :address
+      t.string :price
       t.string :url
       t.text :description
 

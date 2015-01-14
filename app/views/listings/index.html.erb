@@ -4,12 +4,12 @@
 
 
 <div class="col-md-6">
-<h1>Listing users</h1>
 
+<div class="thumbnail">
 <div style='width: 800px;'>
-  <div id="map" style='width: 600px; height: 400px;'></div>
+  <div id="map" style='width: 785px; height: 400px;'></div>
 </div>
-
+  </div>
 <script type="text/javascript">
   handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
@@ -37,16 +37,17 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 </script>
   </div>
 
-
+<center><h1>Rent Near Howard</h1></center>
 <div class="col-md-6">
  <div class="row">
     <% @listings.each do |listing| %>
       <tr>
-             <div class="col-md-12"> 
+             <div class="col-md-4"> 
      <div class="thumbnail"> 
-        <td><%= listing.latitude %></td>
-        <td><%= listing.longitude %></td>
-       <td><%= link_to listing.address, "http://realtor.com#{listing.url}" %></td> 
+     <!--   <td><%= listing.latitude %></td>
+        <td><%= listing.longitude %></td> -->
+       <td><h3><%= link_to listing.address, "http://realtor.com#{listing.url}" %></h3></td> 
+       <h3><td><%= listing.price %></td></h3>
        <td><%= listing.url %></td>
         <td><%= listing.description %></td>
         <td><%= link_to 'Show', listing %></td>

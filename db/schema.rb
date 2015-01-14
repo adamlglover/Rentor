@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150108044758) do
+ActiveRecord::Schema.define(version: 20150113235922) do
 
   create_table "listings", force: true do |t|
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
+    t.string   "price"
     t.string   "url"
     t.text     "description"
     t.datetime "created_at"
